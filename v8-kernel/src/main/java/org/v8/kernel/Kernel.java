@@ -6,6 +6,7 @@ import java.util.List;
 import org.v8.kernel.bean.POJO;
 import org.v8.kernel.behavior.Behavior;
 import org.v8.kernel.bundles.Bundle;
+import org.v8.kernel.event.Event;
 
 /**
  *     
@@ -62,12 +63,15 @@ public abstract class Kernel {
 	//@Resources
 	static List<Bundle> bundles = new ArrayList<Bundle>();
 	
+	//@Inject
+	Behavior behavior;
 	
 	
 	public abstract boolean registerBundle(Bundle bundle);
 	public abstract boolean unregisterBundle(Bundle bundle);
 	
-	public abstract boolean checkSecurity(Behavior behavior);
+	public abstract boolean authentication(Behavior behavior);
+	
 	
 	public abstract void setUpBehavior(Bundle bundle,POJO<?> bean,Behavior behavior);
 	
@@ -77,6 +81,8 @@ public abstract class Kernel {
 	public abstract boolean registerResources(POJO<?> bean);
 	public abstract boolean unregisterResources(POJO<?> bean);
 	
+	
+	public abstract void setUpMapping(Event event,Behavior behavior);
 	
 	
 }

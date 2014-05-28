@@ -1,9 +1,9 @@
 package org.v8.kernel.bundles;
 
-import org.v8.kernel.behavior.Behavior;
+import org.v8.kernel.jmx.observer.Observer;
 
 public interface Bundle {
 
-	void accept( Behavior behavior );
+	void setObserver( Observer<?> ob );
 	
 }
